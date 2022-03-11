@@ -1,5 +1,5 @@
 from libros_app.config.mysqlconnection import connectToMySQL
-from libros_app.models.book import Book
+from libros_app.models import book
 
 class Author:
 
@@ -33,7 +33,7 @@ class Author:
         author = result[0]
         author = cls(author)
         form={"id":author.id}
-        author.books=Book.muestraBooks(form)
+        author.books=book.Book.muestraBooks(form)
         return author
 
     @classmethod

@@ -1,5 +1,5 @@
 from libros_app.config.mysqlconnection import connectToMySQL
-from libros_app.models.author import Author
+from libros_app.models import author
 
 
 class Book:
@@ -29,13 +29,13 @@ class Book:
         return result
 
     @classmethod
-    def cargaAuthor(cls,form):
+    def cargaBook(cls,form):
         query = "SELECT * FROM esquema_libros.books WHERE books.id = %(id)s ;"
         result = connectToMySQL("esquema_libros").query_db(query,form)
         book = result[0]
         book = cls(book)
         form={"id":book.id}
-        book.books=Author.muestraAuthor(form)
+        book.authors=author.Author.muestraAuthor(form)
         return book
 
     @classmethod

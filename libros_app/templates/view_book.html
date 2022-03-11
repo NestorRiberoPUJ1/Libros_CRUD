@@ -13,7 +13,7 @@
 <body>
     <div class="container row">
         <div class="container col-6">
-            <h1>Title: {{Book.title}}</h1>
+            <h1>Title: {{book.title}}</h1>
 
             <table class="table table-striped">
                 <thead class="thead-dark">
@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for author in books.authors%}
+                    {% for author in book.authors%}
                     <tr>
                         <td>{{author.name}}</td>
                     </tr>
@@ -39,7 +39,7 @@
                     <input type="hidden" name="book_id" id="book_id" value="{{book.id}}">
                     <label for="author_id">Author</label>
                     <select name="author_id" id="author_id" class="form-control">
-                        <option value="" disabled selected>Select a book</option>
+                        <option value="" disabled selected>Select a author</option>
                         {% for author in authors %}
                         <option value="{{author.id}}">{{author.name}}</option>
                         {% endfor%}
